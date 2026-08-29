@@ -1,0 +1,80 @@
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/manrope/400.css';
+@import '@fontsource/manrope/500.css';
+@import '@fontsource/manrope/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #e5ecea;
+  --bg-surface: #f2f6f5;
+  --bg-elevated: #ffffff;
+  --bg-muted: #cfd9d6;
+  --text-primary: #0f1f1b;
+  --text-secondary: rgba(15, 31, 27, 0.68);
+  --text-faint: rgba(15, 31, 27, 0.45);
+  /* Suretix amber ramp — re-seeded from restorix-portal's [data-brand="suretix"]
+     block (Prompt 549), which WCAG-checked these with a real luminance/contrast
+     formula: --accent #B45309 = 5.0:1 vs #ffffff (AA normal text) / 4.6:1 vs
+     --bg-surface. This marketing site is light-only (same as restorix-marketing —
+     no .dark block, no prefers-color-scheme handling), so only the light ramp
+     applies; the portal's dark amber values (--accent #C2610C etc.) are
+     portal-only and not carried here. PLACEHOLDER palette — no real Suretix
+     brand color exists yet; swap when Brayden supplies brand assets. */
+  --accent: #b45309;
+  --accent-bright: #f59e0b;
+  --accent-deep: #78350f;
+  --border: rgba(14, 26, 24, 0.14);
+  --border-strong: rgba(14, 26, 24, 0.22);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Manrope', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-bright);
+  color: var(--text-primary);
+}
+
+.glow {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  background: radial-gradient(circle, var(--accent-bright), rgba(0, 0, 0, 0) 70%);
+  opacity: 0.35;
+}
+
+/* Prompt 479-483 (ambient glow blobs, then a layered-gradient hero wave)
+   shipped, iterated, and were both superseded by Prompt 485 — Brayden
+   didn't approve either result; 485 ports an approved reference file's
+   actual SVG-path-stroke technique instead (see HeroWave in Hero.jsx).
+   Removed both abandoned approaches' CSS rather than left as dead code.
+   See git history (up to commit 5cd74bd) if either is ever worth
+   revisiting. */
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}

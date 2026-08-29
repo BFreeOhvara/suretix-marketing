@@ -37,13 +37,10 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-shell items-center justify-between px-6 py-5">
-        {/* No Suretix logo asset exists yet — plain-text wordmark stands in
-            until Brayden supplies real brand assets (same as restorix-portal
-            Prompt 549). */}
+        {/* Prompt 552 — real Suretix icon mark (burnt-orange "S"), replaces
+            the plain-text wordmark placeholder. Icon-only per Brayden. */}
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="font-display text-lg font-semibold tracking-tight text-fg-primary">
-            Suretix
-          </span>
+          <img src="/logo-icon.png" alt="Suretix" className="h-8 w-auto" />
         </a>
         <div className="hidden items-center gap-8 md:flex">
           {LINKS.map((l) => (
